@@ -1,0 +1,63 @@
+
+
+        #title_text{
+            margin-left: 30%;
+            position: relative;
+        }
+        input{
+            width: 150px;
+            height: 50px;
+            padding-left: 20px;
+            text-align:left;
+            font-size: 20px;
+        }
+        
+        #content{
+            width: 90%;
+            height: 100%;
+            border: 0px ;
+            border-radius: 15px;
+            margin: 0px auto;
+            background: #fff;
+        }
+        #app_header{
+            margin:0px 0px 25px 0px;
+        }
+
+        li{
+            margin-left: 2px;
+        }        
+        #navigation_bar{
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            margin-left: 45px;
+            padding: 5px; 
+        }
+
+        table{margin: 0px auto;padding: 40px;text-align: right;}
+        
+
+        #form_div{
+            margin: 0px auto;
+            width: 100%;
+            background: #d5d8e1;
+            height: 600px;
+        }
+
+        .custom_checkbox{
+            width:20px; height:25px;text-align:left; margin-right:10px;
+        }
+        
+        input,select{
+            width: 150px;
+            margin-left: 5px;           
+            text-align:center;
+        }
+        #indreni_heading{
+            background-image: -webkit-gradient( linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22) );
+            color:transparent;
+            -webkit-background-clip: text;
+    
+        }
+

@@ -1,0 +1,209 @@
+<html>
+	<head>
+		<title>AEPC App</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<link href="assets/css/bootstrap.css" rel="stylesheet" type="text/css"/>		
+        <link href="assets/css/bootstrap-responsive.css" rel="stylesheet" type="text/css"/>
+        <link href="assets/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css"/>
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <script type="text/javascript" src="assets/js/jquery.js"></script>
+
+        <style type="text/css">
+        	#actualTable{
+        		margin: 0px auto;
+        		width: 800px;
+        	}
+
+        	input[type=text],select{
+        		height: 30px;
+        		width: 200px;
+        	}
+
+                #bioGasP{
+
+                }
+
+                #forrestImage{
+                        height: 300px;
+                        width: 300px;
+                        border-radius: 200px;
+
+                        background: url('assets/img/forest.gif');
+                        position: relative;
+                        float: left;
+                        margin: -5px 0px 0px 400px;
+                }
+                #kerImage{
+                        height: 300px;
+                        width: 300px;
+                        border-radius: 200px;
+
+                        background: url('assets/img/stove.jpg');
+                        position: relative;
+                        float: left;
+                        margin: -350px 0px 0px 850px
+                }
+                #bioImage{
+                        height: 300px;
+                        width: 300px;
+                        border-radius: 200px;
+
+                        background: url('assets/img/stove.jpg');
+                        position: relative;
+                        float: left;
+                        margin: 5px 0px 0px 400px;
+                }
+                #all_info{
+                        block:inline;}
+
+                        #linkText{
+                                color: rgb(8, 223, 13);
+                        }
+        </style>
+
+        <script type="text/javascript">
+        $('document').ready(function(){
+                $('#extraInfo').hide();
+
+        	$('#cattle_number').on('change',function() {
+
+
+        		
+        		for (var i = 0; i < (parseInt($('#cattle_number').val())); i++) {
+        			
+        			$('#actualTable > tbody:first').append('<tr><th>Select animal </th><td><select id=\'cType'+(i+1)+'\'><option value=\'1\'>Poultry</option><option value=\'2\'>Cow</option><option value=\'3\'>Buffalo</option></select></td><th>Total number </th><td><input type=\"text\" id=\'cTypeNumber'+(i+1)+'\'/></td></tr>');
+        		};
+        		
+        		
+        	});
+
+        	var totalBioGas = 0;
+                var totalBioGasCapacity = 0;
+        	var totalTreesSaved = 0;
+                var totalKersoneCost = 0;
+        	//
+
+
+        	$('#btn1').on('click',function(){
+
+
+                totalBioGas = 0;
+                totalBioGasCapacity = 0;
+                totalKersoneCost = 0;
+                                totalBioGas=(parseFloat($('#numberHousehold').val())*0.226688); //potential from human waste
+                                
+        		for (var i = 0; i <(parseInt($('#cattle_number').val())); i++) {
+                                                //totalBioGas Energy potential acc to no. of cattle
+                                                //cTypeNumber1 = number of values in first values
+                                if($('#cType'+(i+1)).val() == 1){
+        			totalBioGas += ($('#cTypeNumber'+(i+1)).val())*0.14168; //for poultry
+                                totalBioGasCapacity += ($('#cTypeNumber'+(i+1)).val())*0.0056;
+                                }
+                                if($('#cType'+(i+1)).val() == 2){
+                                totalBioGas += ($('#cTypeNumber'+(i+1)).val())*10.12; //for cow
+                                totalBioGasCapacity += ($('#cTypeNumber'+(i+1)).val())*0.4;
+                                }
+                                if($('#cType'+(i+1)).val() == 3){
+                                totalBioGas += ($('#cTypeNumber'+(i+1)).val())*15.18; //for buffalo
+                                totalBioGasCapacity += ($('#cTypeNumber'+(i+1)).val())*0.6;
+                                }
+
+                                        
+        			
+                                                //totalBioGasCapacity gives potential volume of production acc to no. of cattle
+                                                 totalKersoneCost = ((totalBioGas*1.2345679).toFixed(1));
+
+                        $('#keroseneSaved').html(" <b>"+totalKersoneCost+" liters of kerosene "+"</b>");
+                        $('#keroseneSaved').append("<b>"+" which is equal to NRs."+ (totalKersoneCost*86.50).toFixed(2)+"</b>");
+
+                        $('#totalEnergy').html("<b>"+((totalBioGas*365)).toFixed(0)+" MJ per year"+"</b>");
+                        $('#totalTrees').html("<b>"+(((totalBioGas*365)/1750)+1).toFixed(0)+" Trees per year"+"</b>");
+                                
+                        $('#bioGasPotential').html("<b>"+totalBioGasCapacity.toFixed(3)+" m<sup>3<sup>"+"</B>");
+
+                        if(totalBioGasCapacity < 2 ){
+                                $('#subsidy').html(" <b>Rs 16000</b>");
+                        }
+                        else if(totalBioGasCapacity <5){
+                                $('#subsidy').html(" Rs 20000");       
+                        }
+                        else if(totalBioGasCapacity <7){
+                                $('#subsidy').html(" Rs 24000");
+                        }
+                        else{
+                                $('#subsidy').html(" Rs 25000");
+                        }
+
+        		};	
+
+        		//$('#kerInfo').fadeIn(500);
+                        //$('#bioGasP').fadeIn(800);
+                        $('#extraInfo').fadeIn();
+                       
+        	});
+        	
+
+        	});
+        </script>
+	</head>
+	<body>
+		<div id="UIForm">
+		<table class="table table-striped" id="actualTable">
+			<tbody>
+			
+			<!--tr>
+				<th>Primary Source of energy</th>
+				<td>
+					<select name="source of energy">
+						<option value="1">Firewood</option>
+						<option value="2">LPG Gas</option>
+						<option value="3">Other</option>
+					</select>
+				</td-->
+
+			</tr>
+
+			<tr>
+				<th colspan="2">Number of people in household: </th>
+				<td colspan="2"><input  type="text" id="numberHousehold"/></td>
+			</tr>			
+
+			<tr>
+				<th colspan="2">Available number of cattle types</th>
+				<td colspan="2"><input type="text" id="cattle_number"/></td>
+			</tr>
+
+			</tbody>
+			<tfoot><td><button id="btn1" class="btn btn-success">View Result</button></td></tfoot>
+		</table>
+		</div>
+                <div id="extraInfo">
+		<div id="bioinfo">
+                        <div id="bioEnergyInfo">
+			<h2 style="margin-left:300px;">Total Amount of energy served by Bio gas =  <span id="totalEnergy"></span><br></h2>
+                        </div>      
+                </div>
+
+                <div id="treeInfo" style="margin:0px 0px 0px -300px;">
+                        <h3>Which is equal to <div id="forrestImage"> </div><span id="totalTrees"></span></h3>
+                </div>
+                <div id="kerInfo">
+                        <div id="kerImage"> </div>
+                        <div id="keroseneEnergyInfo" style="margin-top:300px;margin-left:450px;">
+                        <h3>Or <span id="keroseneSaved"></span></h3>
+                        </div>
+		</div>
+
+                <div id="bioGasP" style="margin-top:50px;">
+                        
+                        <h3 style="margin-left:300px;">Total BioGas Potential <span id="bioGasPotential"></span><br>
+                        You are eligible for a subsidy of <span id="subsidy"></span></h3>
+                </div>
+                <div>
+                        <h2 id="linkText" style="margin-left:300px;"> Would you like to know more?</h2>
+                </div>
+
+        </div>
+
+	</body>
+</html> 

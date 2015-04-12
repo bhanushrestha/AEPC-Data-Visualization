@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <title>Process and benefits of Biogas</title>
+        <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> -->
+        <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
+       <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+       <script type="text/javascript" src="jquery-2.1.3.min.js"></script>
+       <script>
+           $('document').ready(function(){
+               $('#waste').hover(function(){
+                  $('#infoWaste').toggle();
+               });
+               $('#collector').hover(function(){
+                   $('#infoCollector').toggle();
+               });
+               $('#biogasProduction').hover(function(){
+                   $('#infoBiogasProduction').toggle();
+               });
+               $('#benefits').hover(function(){
+                   $('#infoBenefits').toggle();
+               });
+           });
+       </script>
+       <link rel="stylesheet" type="text/css" href="process.css">
+    </head>
+    <body>
+        <div id="container" class="">
+            <div id="infoi">
+                <img id="process" src="imgs/images/processandbenefits.jpg"/>
+            </div>  
+        <div id="waste" > A </div>
+        <div id ="collector">B</div>
+        <div id="biogasProduction">C</div>
+        <div id="benefits">D</div>
+        
+        <div id="infoWaste" class="well" data-toggle="popover">
+            <h4><em>Human and Animal Waste</em></h4>
+            <p>Human and animal waste is collected in a concrete anaerobic digestion tank.</p>
+        </div>
+        <div id="infoCollector" class="well">
+            <h4><em>Anaerobic Digestion Tank</em></h4>
+            <p>Waste is mixed with water and left to ferment.</p>
+        </div>
+        <div id="infoBiogasProduction" class="well">
+            <h4><em>Biogas for <i>Cooking and Lighting</i></em></h4>
+            <p>Biogas is produced as a byproduct of the fermentation and piped into the house when needed.</p>
+        </div>
+        <div id="infoBenefits" class="well">
+            <h4><em>Benefits: Environment and Energy Security, Improved Saving and Extra Working Hours & Health</em></h4>
+            <p>
+                Producing biogas diminishes use of non-renewable energy. By switching to biogas people will not have to pay for firewood and kerosene and they can use the extra hours gained from not having to collect firewood elsewhere. Installing a biogas system in a house improves the health of a family, especially that of women and children
+            </p>
+        </div>
+        </div>
+        
+        <footer>
+          <button class="btn btn-primary">Step 3</button>
+        </footer>
+    </body>
+</html>

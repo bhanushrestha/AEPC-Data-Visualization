@@ -1,0 +1,88 @@
+#container{
+    width:1200px;
+    height:799px;
+    position: absolute;
+    
+}
+#infoi{
+    width: 100%;
+    height:100%;
+    top: 0;
+    left:0;
+}
+#waste{
+    background:coral;
+    width: 355px;
+    height: 181px;
+    position: absolute;
+    margin: -522px 0 0 106px;
+    color: #fff;
+  
+   //text-indent: 100%;
+}
+
+#collector
+{
+    background:#cccccc;
+    position: absolute;
+    width: 179px;
+    height: 157px;
+    margin: -251px 0 0 342px;
+}
+
+#biogasProduction
+{
+    background: activeborder;
+    position: absolute;
+    width: 228px;
+    height: 224px;
+    margin: -640px 0 0 818px;
+}
+#benefits
+{
+    background: brown;
+    position: absolute;
+    width: 537px;
+    height: 166px;
+    margin: -201px 0 0 625px;
+}
+#infoWaste{
+    //background:coral;
+    width: 258px;
+    height: 136px;
+    position: absolute;
+    margin: -667px 0px 0px 50px;
+    display: none;
+}
+#infoCollector{
+    //background:#cccccc;
+    position: absolute;
+    width: 179px;
+    height: 156px;
+    margin: -244px 0px 0px 133px;
+    display: none;
+}
+#infoBiogasProduction{
+    //background: activeborder;
+    position: absolute;
+    width: 228px;
+    height: 177px;
+    margin: -689px 0px 0px 553px;
+    display: none;
+}
+#infoBenefits{
+    //background: brown;
+    position: absolute;
+    width: 537px;
+    height: 191px;
+    margin: -379px 0px 0px 634px;
+    display: none;
+}
+
+#waste,#collector,#biogasProduction,#benefits
+{
+    text-indent: 100%;
+    background-color: transparent;
+    background-position-x: none;
+    opacity: 100%;
+}
